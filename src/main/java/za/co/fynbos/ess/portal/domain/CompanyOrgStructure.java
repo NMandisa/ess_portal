@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * @author NMandisa Mkhungo
+ *
+ */
 @Entity
 public class CompanyOrgStructure implements Serializable {
 
@@ -15,29 +19,35 @@ public class CompanyOrgStructure implements Serializable {
 	private String grade;
 	private String title;
 	private String employeeNum;
-	
-	
+
 	public Long getCompanyOrgStructureId() {
 		return companyOrgStructureId;
 	}
+
 	public void setCompanyOrgStructureId(Long companyOrgStructureId) {
 		this.companyOrgStructureId = companyOrgStructureId;
 	}
+
 	public String getGrade() {
 		return grade;
 	}
+
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public String getEmployeeNum() {
 		return employeeNum;
 	}
+
 	public void setEmployeeNum(String employeeNum) {
 		this.employeeNum = employeeNum;
 	}
