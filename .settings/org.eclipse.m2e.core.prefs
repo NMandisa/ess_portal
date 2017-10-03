@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-activeProfiles=pom.xml
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=refs/remotes/origin/master
+activeProfiles=
 eclipse.preferences.version=1
 resolveWorkspaceProjects=true
 version=1
-=======
-activeProfiles=pom.xml
-eclipse.preferences.version=1
-resolveWorkspaceProjects=true
-version=1
->>>>>>> refs/remotes/origin/master
