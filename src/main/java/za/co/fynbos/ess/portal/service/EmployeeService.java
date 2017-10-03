@@ -8,8 +8,6 @@ import za.co.fynbos.ess.portal.domain.Employee;
  * @author NMandisa Mkhungo
  *
  */
-
-
 public interface EmployeeService {
 
 	Employee addEmployee(Employee employee);
