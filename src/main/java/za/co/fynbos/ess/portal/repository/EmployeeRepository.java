@@ -17,6 +17,6 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 	@Override
 	Employee findOne(Long employeeId);
 	
-	Employee findByEmployeeNumber(String employeeNum);
+	Employee findByEmployeeNum(String employeeNum);
 
 }
