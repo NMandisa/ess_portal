@@ -1,5 +1,8 @@
 package za.co.fynbos.ess.portal.repository;
 
-public interface EmployeeRepository {
+import org.springframework.data.repository.CrudRepository;
+import za.co.fynbos.ess.portal.domain.Employee;
+
+public interface EmployeeRepository extends CrudRepository<Employee,Long> {
 
 }
