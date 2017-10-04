@@ -17,16 +17,5 @@ import za.co.fynbos.ess.portal.service.EmployeeService;
 @Service
 public class DefaultEmployeeService implements EmployeeService {
 
-	@Autowired
-	private EmployeeRepository employeeRepository;
-
-	@Override
-	public Employee addEmployee(Employee employee) {
-		return employeeRepository.save(employee);
-	}
-
-	@Override
-	public List<Employee> getAllEmployee() {
-		return employeeRepository.findAll();
-	}
+	
 }

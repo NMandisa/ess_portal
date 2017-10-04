@@ -10,7 +10,5 @@ import za.co.fynbos.ess.portal.domain.Employee;
  */
 public interface EmployeeService {
 
-	Employee addEmployee(Employee employee);
-
-	List<Employee> getAllEmployee();
+	
 }
