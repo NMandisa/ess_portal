@@ -21,7 +21,7 @@ public class DefaultEmployeeDAO implements EmployeeDAO{
 	private EmployeeRepository employeeRepository;
 
 	@Override
-	public Employee addEmployee(Employee employee) {
+	public Employee insertEmployee(Employee employee) {
 		return employeeRepository.save(employee);
 	}
 

@@ -10,7 +10,7 @@ import za.co.fynbos.ess.portal.domain.Employee;
  */
 public interface EmployeeDAO {
 	
-	Employee addEmployee(Employee employee);
+	Employee insertEmployee(Employee employee);
 
-	List<Employee> getAllEmployee();
+	List<Employee> selectAllEmployees();
 }
