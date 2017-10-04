@@ -13,7 +13,7 @@ public interface EmployeeDAO {
 	Employee insertEmployee(Employee employee);
 	List<Employee> selectAllEmployees();
 	boolean deleteEmployee();
-	Employee findEmployee();
+	Employee findEmployee(String employeeNum);
 	boolean updateEmployee();
 	  
 }

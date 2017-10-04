@@ -39,9 +39,8 @@ public class DefaultEmployeeDAO implements EmployeeDAO{
 
 	
 	@Override
-	public Employee findEmployee() {
-		// TODO Auto-generated method stub
-		return null;
+	public Employee findEmployee(String employeeNum) {
+		return employeeRepository.findByEmployeeNum(employeeNum);
 	}
 
 	@Override
