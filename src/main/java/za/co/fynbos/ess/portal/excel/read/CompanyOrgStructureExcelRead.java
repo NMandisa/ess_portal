@@ -1,7 +1,7 @@
 /**
  * 
  */
-package za.co.fynbos.ess.portal.excel.reader;
+package za.co.fynbos.ess.portal.excel.read;
 
 /**
  * @author NMandisa Mkhungo
