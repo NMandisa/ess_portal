@@ -26,7 +26,27 @@ public class DefaultEmployeeDAO implements EmployeeDAO{
 	}
 
 	@Override
-	public List<Employee> getAllEmployee() {
+	public List<Employee> selectAllEmployees() {
 		return employeeRepository.findAll();
+	}
+
+
+	@Override
+	public boolean deleteEmployee() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+	@Override
+	public Employee findEmployee() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean updateEmployee() {
+		// TODO Auto-generated method stub
+		return false;
 	}  
 }

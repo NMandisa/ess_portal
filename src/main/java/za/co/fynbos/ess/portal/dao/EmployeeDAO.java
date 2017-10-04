@@ -11,6 +11,9 @@ import za.co.fynbos.ess.portal.domain.Employee;
 public interface EmployeeDAO {
 	
 	Employee insertEmployee(Employee employee);
-
 	List<Employee> selectAllEmployees();
+	boolean deleteEmployee();
+	Employee findEmployee();
+	boolean updateEmployee();
+	  
 }
