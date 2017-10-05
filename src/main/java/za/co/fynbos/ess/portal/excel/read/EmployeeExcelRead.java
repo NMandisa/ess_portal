@@ -35,7 +35,7 @@ public class EmployeeExcelRead {
         
         Sheet employeeSheet = workbook.getSheetAt(0);
         Iterator<Row> iterator = employeeSheet.iterator();
-
+        if (iterator.hasNext())iterator.next();//Skip first row
         while (iterator.hasNext()) {
             Row nextRow = iterator.next();
             Iterator<Cell> cellIterator = nextRow.cellIterator();
@@ -47,28 +47,27 @@ public class EmployeeExcelRead {
 
                 switch (columnIndex) {
                     case 0:
-                    	tempEmployee.setName(nextCell.getStringCellValue());
+                    	tempEmployee.setName((String)nextCell.getStringCellValue());
                     	System.out.print(nextCell.getStringCellValue() +" | ");
                         break;
                     case 1:
-                    	tempEmployee.setSurname(nextCell.getStringCellValue());
-                    	System.out.print(nextCell.getStringCellValue() +" | ");
+                    	tempEmployee.setSurname((String)nextCell.getStringCellValue());
+                    	System.out.print((String)nextCell.getStringCellValue() +" | ");
                         break;
                     case 2:
-                    	tempEmployee.setDob(nextCell.getStringCellValue());
-                    	System.out.print(nextCell.getStringCellValue() +" | ");
+                    	String tempValue =nextCell.getDateCellValue().toString();
+                    	tempEmployee.setDob(tempValue);
+                    	System.out.print(tempValue +" | ");
                         break;
                     case 3:
-                    	tempEmployee.setEmployeeNum(nextCell.getStringCellValue());
-                    	System.out.print(nextCell.getStringCellValue() +" | ");
+                    	String tempVal = Double.toString(nextCell.getNumericCellValue());
+                    	tempEmployee.setEmployeeNum(tempVal);
+                    	System.out.print(tempVal +" | ");
                         break;
                 }}
-            if(!"Name".equals(tempEmployee.getName()))employees.add(tempEmployee);
-        }
-        //System.out.println("");
-		return employees;
-		
-
+            System.out.println("");
+            employees.add(tempEmployee);//Add Employee to the list
+        }//Switch End
+		return employees;//Return list of Employee Objects
     }//EmployeeExcelRead
-
 }//EmployeeExcelRead
