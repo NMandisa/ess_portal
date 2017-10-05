@@ -1,6 +1,7 @@
 package za.co.fynbos.ess.portal;
 
 import java.io.Console;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -17,14 +18,14 @@ public class EssPortalApplication {
 	
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		SpringApplication.run(EssPortalApplication.class, args);
 		
 		 //System.out.println("*******************************************************");
 		// System.out.println("|___________________| You Are Here |___________________|");
 		// System.out.println("*******************************************************");
 		EmployeeExcelRead employeeExcelRead = new EmployeeExcelRead();
-		List<Employee> employees = employeeExcelRead.EmployeeExcelRead(System.getProperty("user.dir")+"/src/main/resources/sample_data.xlsx");
+		employeeExcelRead.EmployeeExcelRead(); 
 		//Iterator it = employees.iterator();
 		//Employee tempEmployee = new Employee();
 		  //while(it.hasNext())

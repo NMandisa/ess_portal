@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -26,45 +27,48 @@ import za.co.fynbos.ess.portal.domain.Employee;
  */
 public class EmployeeExcelRead {
 	
-	public List<Employee> EmployeeExcelRead(String filename) {
-	
-		try {
+   public List<Employee> EmployeeExcelRead() throws IOException {
+		List<Employee> employees = new ArrayList<>();
+        InputStream inputStream = getClass().getResourceAsStream("C:/Users/TCS/git/ess_portal/ess_portal/src/main/resources/sample_data.xlsx");
+        Workbook workbook = new XSSFWorkbook("C:/Users/TCS/git/ess_portal/ess_portal/src/main/resources/sample_data.xlsx");
+        //Workbook workbook = getWorkbook(inputStream, "data.xls");
+        
+        Sheet employeeSheet = workbook.getSheetAt(0);
+        Iterator<Row> iterator = employeeSheet.iterator();
 
-            FileInputStream excelFile = new FileInputStream(new File(filename));
-            Workbook workbook = new XSSFWorkbook(excelFile);
+        while (iterator.hasNext()) {
+            Row nextRow = iterator.next();
+            Iterator<Cell> cellIterator = nextRow.cellIterator();
+            Employee tempEmployee = new Employee();
 
-            Sheet employeeDataSheet = workbook.getSheetAt(0);
-            Iterator<Row> iterator = employeeDataSheet.iterator();
+            while (cellIterator.hasNext()) {
+                Cell nextCell = cellIterator.next();
+                int columnIndex = nextCell.getColumnIndex();
 
-            while (iterator.hasNext()) {
-
-                Row currentRow = iterator.next();
-                Iterator<Cell> cellIterator = currentRow.iterator();
-
-                while (cellIterator.hasNext()) {
-
-                    Cell currentCell = cellIterator.next();
-                    if (currentCell.getCellTypeEnum() == CellType.STRING) {
-                        System.out.print(currentCell.getStringCellValue() + " | ");
-                    } else if (currentCell.getCellTypeEnum() == CellType.NUMERIC) {
-                        System.out.print(currentCell.getNumericCellValue() + " | ");
-                    }
-
-                }
-                System.out.println();
-                return null;
-            }
-        } catch (FileNotFoundException exception) {
-        	//return null;
-            exception.printStackTrace();
-        } catch (IOException exception) {
-        	//return null;
-            exception.printStackTrace();
+                switch (columnIndex) {
+                    case 0:
+                    	tempEmployee.setName(nextCell.getStringCellValue());
+                    	System.out.print(nextCell.getStringCellValue() +" | ");
+                        break;
+                    case 1:
+                    	tempEmployee.setSurname(nextCell.getStringCellValue());
+                    	System.out.print(nextCell.getStringCellValue() +" | ");
+                        break;
+                    case 2:
+                    	tempEmployee.setDob(nextCell.getStringCellValue());
+                    	System.out.print(nextCell.getStringCellValue() +" | ");
+                        break;
+                    case 3:
+                    	tempEmployee.setEmployeeNum(nextCell.getStringCellValue());
+                    	System.out.print(nextCell.getStringCellValue() +" | ");
+                        break;
+                }}
+            if(!"Name".equals(tempEmployee.getName()))employees.add(tempEmployee);
         }
-		return null;
+        //System.out.println("");
+		return employees;
+		
 
-    }
+    }//EmployeeExcelRead
 
-
-
-}
+}//EmployeeExcelRead
