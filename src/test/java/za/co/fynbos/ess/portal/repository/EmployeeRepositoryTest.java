@@ -37,9 +37,9 @@ public class EmployeeRepositoryTest {
     private EmployeeRepository employeeRepository;
 	
 	@Test
-    public void testFindByName() {
-        entityManager.persist(new Employee((long) 1,"Noxolo Mandisa","Mkhungo","30/04/1993","12192"));
-        List<Employee> employee = employeeRepository.findByName("Foo");
+    public void testEmployeeFindByName() {
+        entityManager.persist(new Employee((long) 1,"Noxolo","Mkhungo","30/04/1993","12192"));
+        List<Employee> employee = employeeRepository.findByName("Noxolo");
         assertEquals("Noxolo Mandisa", employee.get(0).getName());
     }
 	
