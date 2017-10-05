@@ -3,12 +3,15 @@
  */
 package za.co.fynbos.ess.portal.dao.impl;
 
+import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import za.co.fynbos.ess.portal.dao.EmployeeDAO;
 import za.co.fynbos.ess.portal.domain.Employee;
+import za.co.fynbos.ess.portal.excel.read.EmployeeExcelRead;
 import za.co.fynbos.ess.portal.repository.EmployeeRepository;
 
 /**
@@ -47,5 +50,27 @@ public class DefaultEmployeeDAO implements EmployeeDAO{
 	public boolean updateEmployee() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+
+	@Override
+	public List<Employee> importAllEmployees() {
+		try {
+		        List<Employee> employees = new EmployeeExcelRead().EmployeeExcelRead();
+		            Iterator<Employee> employeeIterator = employees.iterator();
+		            Employee tempEmployee = new Employee();
+		            while(employeeIterator.hasNext())
+		            {
+		            	tempEmployee = employeeIterator.next();
+		            	System.out.println(tempEmployee.toString());
+		                employeeRepository.save(tempEmployee);
+		            }
+		     
+		return employees;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}  
 }
