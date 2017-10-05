@@ -3,7 +3,7 @@
  */
 package za.co.fynbos.ess.portal.dao.impl;
 
-import java.io.IOException;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,7 +20,7 @@ import za.co.fynbos.ess.portal.repository.EmployeeRepository;
  */
 public class DefaultEmployeeDAO implements EmployeeDAO{
 
-	@Autowired
+	@Autowired(required = true)
 	private EmployeeRepository employeeRepository;
 
 	@Override
@@ -62,7 +62,7 @@ public class DefaultEmployeeDAO implements EmployeeDAO{
 		            while(employeeIterator.hasNext())
 		            {
 		            	tempEmployee = employeeIterator.next();
-		            	System.out.println(tempEmployee.toString());
+		            	System.out.println("Name : "+tempEmployee.getName()+" Surname :"+tempEmployee.getSurname()+" DoB :"+tempEmployee.getDob()+" Emp Num :"+tempEmployee.getEmployeeNum());
 		                employeeRepository.save(tempEmployee);
 		            }
 		     
