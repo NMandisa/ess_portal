@@ -63,7 +63,8 @@ public class DefaultEmployeeDAO implements EmployeeDAO{
 		            {
 		            	tempEmployee = employeeIterator.next();
 		            	System.out.println("Name : "+tempEmployee.getName()+" Surname :"+tempEmployee.getSurname()+" DoB :"+tempEmployee.getDob()+" Emp Num :"+tempEmployee.getEmployeeNum());
-		                employeeRepository.save(tempEmployee);
+		                //employeeRepository.save(tempEmployee);
+		                insertEmployee(tempEmployee);
 		            }
 		     
 		return employees;
