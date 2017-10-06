@@ -58,13 +58,14 @@ public class DefaultEmployeeDAO implements EmployeeDAO{
 		try {
 		        List<Employee> employees = new EmployeeExcelRead().EmployeeExcelRead();
 		            Iterator<Employee> employeeIterator = employees.iterator();
-		            Employee tempEmployee = new Employee();
+		            Employee tempEmployee = new Employee();//Reset employee
 		            while(employeeIterator.hasNext())
 		            {
 		            	tempEmployee = employeeIterator.next();
 		            	System.out.println("Name : "+tempEmployee.getName()+" Surname :"+tempEmployee.getSurname()+" DoB :"+tempEmployee.getDob()+" Emp Num :"+tempEmployee.getEmployeeNum());
-		                //employeeRepository.save(tempEmployee);
-		                insertEmployee(tempEmployee);
+		                tempEmployee.setEmployeeId((long) 11112);
+		            	//employeeRepository.save(tempEmployee);
+		                //insertEmployee(tempEmployee);
 		            }
 		     
 		return employees;

@@ -22,5 +22,6 @@ public class EssPortalApplication {
 		// System.out.println("|___________________| You Are Here |___________________|");
 		// System.out.println("*******************************************************"); 
 		new DefaultEmployeeDAO().importAllEmployees();
+		new DefaultEmployeeDAO().selectAllEmployees();
 	}
 }
