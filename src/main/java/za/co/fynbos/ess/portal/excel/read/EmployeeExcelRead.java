@@ -18,6 +18,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.stereotype.Component;
 
 import za.co.fynbos.ess.portal.domain.Employee;
 
@@ -48,7 +49,7 @@ public class EmployeeExcelRead {
                 switch (columnIndex) {
                     case 0:
                     	tempEmployee.setName((String)nextCell.getStringCellValue());
-                    	System.out.print(nextCell.getStringCellValue() +" | ");
+                    	System.out.print("Reading ---> \t"+nextCell.getStringCellValue() +" | ");
                         break;
                     case 1:
                     	tempEmployee.setSurname((String)nextCell.getStringCellValue());

@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import za.co.fynbos.ess.portal.dao.EmployeeDAO;
 import za.co.fynbos.ess.portal.domain.Employee;
@@ -18,6 +19,8 @@ import za.co.fynbos.ess.portal.repository.EmployeeRepository;
  * @author NMandisa Mkhungo
  *
  */
+
+@Component
 public class DefaultEmployeeDAO implements EmployeeDAO{
 
 	@Autowired(required = true)
@@ -65,7 +68,7 @@ public class DefaultEmployeeDAO implements EmployeeDAO{
 		            	System.out.println("Name : "+tempEmployee.getName()+" Surname :"+tempEmployee.getSurname()+" DoB :"+tempEmployee.getDob()+" Emp Num :"+tempEmployee.getEmployeeNum());
 		                tempEmployee.setEmployeeId((long) 11112);
 		            	//employeeRepository.save(tempEmployee);
-		                //insertEmployee(tempEmployee);
+		                insertEmployee(tempEmployee);
 		            }
 		     
 		return employees;
