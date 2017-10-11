@@ -30,8 +30,8 @@ public class EmployeeExcelRead {
 	
    public List<Employee> EmployeeExcelRead() throws IOException {
 		List<Employee> employees = new ArrayList<>();
-        InputStream inputStream = getClass().getResourceAsStream("C:/Users/TCS/git/ess_portal/ess_portal/src/main/resources/sample_data.xlsx");
-        Workbook workbook = new XSSFWorkbook("C:/Users/TCS/git/ess_portal/ess_portal/src/main/resources/sample_data.xlsx");
+        InputStream inputStream = getClass().getResourceAsStream("/ess_portal/src/main/resources/sample_data.xlsx");
+        Workbook workbook = new XSSFWorkbook("/ess_portal/src/main/resources/sample_data.xlsx");
         //Workbook workbook = getWorkbook(inputStream, "data.xls");
         
         Sheet employeeSheet = workbook.getSheetAt(0);
